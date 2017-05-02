@@ -1,6 +1,14 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, PropTypes } from 'react'
 
 class RecipeItem extends PureComponent {
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    summary: PropTypes.string.isRequired,
+    vegan: PropTypes.bool,
+    vegetarian: PropTypes.bool,
+    pescatarian: PropTypes.bool,
+  }
+
   render() {
     const { title, summary, vegan, vegetarian, pescatarian } = this.props
 
