@@ -3,6 +3,9 @@ import chai, { expect } from 'chai'
 import { shallow } from 'enzyme'
 import chaiEnzyme from 'chai-enzyme'
 import RecipeItem from './RecipeItem'
+import Vegan from '../images/vegan.svg'
+import Vegetarian from '../images/vegetarian.svg'
+import Pescatarian from '../images/pescatarian.svg'
 
 chai.use(chaiEnzyme)
 
@@ -26,23 +29,23 @@ const recipe = {
       expect(container.find('h1')).to.have.text(recipe.title)
     })
 
-    it('shows a 🌱 when vegetarian', () => {
-      expect(container.find('ul > li')).to.have.text('🌱')
+    it('shows a SVG-icon of a green corn when vegan', () => {
+      expect(container.find('ul > li')).to.contain(<img src={Vegan} />)
     })
   })
 
   describe('when vegetarian, it', () => {
     const container = shallow(<RecipeItem {...recipe} vegetarian={ true } vegan={ false } />)
 
-    it('shows a 🍳', () => {
-      expect(container.find('ul > li')).to.have.text('🍳')
+    it('shows a SVG-icon of a carrot', () => {
+      expect(container.find('ul > li')).to.contain(<img src={Vegetarian} />)
     })
   })
 
   describe('when pescatarian, it', () => {
     const container = shallow(<RecipeItem {...recipe} pescatarian={ true } vegetarian={ false } vegan={ false } />)
 
-    it('shows a 🐟', () => {
-      expect(container.find('ul > li')).to.have.text('🐟')
+    it('shows a SVG-icon of a fish', () => {
+      expect(container.find('ul > li')).to.contain(<img src={Pescatarian} />)
     })
   })
