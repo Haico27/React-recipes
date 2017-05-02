@@ -4,7 +4,9 @@ import Title from './components/Title'
 class App extends React.Component {
   render() {
     return (
-      <Title content="All Recipes" />
+      <div>
+        <Title content="All Recipes" />
+      </div>
     )
   }
 }
