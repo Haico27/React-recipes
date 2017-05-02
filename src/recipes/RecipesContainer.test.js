@@ -1,5 +1,12 @@
 import React from 'react'
-import RecipesContainer from './recipes/RecipesContainer'
+import chai, { expect } from 'chai'
+import { shallow } from 'enzyme'
+import chaiEnzyme from 'chai-enzyme'
+import RecipesContainer from './RecipesContainer'
+import Title from '../components/Title'
+import RecipeItem from './RecipeItem'
+
+chai.use(chaiEnzyme)
 
 const recipes = [
   {
@@ -39,14 +46,23 @@ const recipes = [
   },
 ]
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <RecipesContainer recipes={ recipes }/>
-      </div>
-    )
-  }
-}
+describe('<RecipesContainer />', () => {
+  const container = shallow(<RecipesContainer recipes= { recipes } />)
 
-export default App
+  it('is wrapped in a div with classname "recipes"', () => {
+    expect(container).to.have.className('recipes')
+    expect(container).to.have.className('wrapper')
+  })
+
+  it('contains a Title', () => {
+    expect(container).to.have.descendants(Title)
+  })
+
+  it('sets the title to "Recipes"', () => {
+    expect(container).to.contain(<Title content="Recipes" />)
+  })
+
+  it('renders all recipes as a RecipeItem', () => {
+    expect(container).to.have.exactly(recipes.length).descendants(RecipeItem)
+  })
+})
