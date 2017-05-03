@@ -35,6 +35,7 @@ class LikeButton extends PureComponent {
       <p className={ this.classNames() }>
         <button onClick={ this.toggleLike.bind(this) }>
           { liked ? '❤️' : '♡' }
+          <span className="copy">{ liked ? '❤️' : '♡' }</span>
         </button>
         <span className="likes">{ liked ? 'You like this' : null }</span>
       </p>
