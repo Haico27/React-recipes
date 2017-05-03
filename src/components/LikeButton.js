@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react'
+import HeartGrey from '../images/heart-grey.svg'
+import HeartRed from '../images/heart-red.svg'
 import './LikeButton.sass'
 
 class LikeButton extends PureComponent {
@@ -34,8 +36,10 @@ class LikeButton extends PureComponent {
     return(
       <p className={ this.classNames() }>
         <button onClick={ this.toggleLike.bind(this) }>
-          { liked ? '❤️' : '♡' }
-          <span className="copy">{ liked ? '❤️' : '♡' }</span>
+          <img className="heart" src={ liked ? HeartRed : HeartGrey } />
+          <span className="copy">
+            <img className="heart" src={ liked ? HeartRed : HeartGrey } />
+          </span>
         </button>
         <span className="likes">{ liked ? 'You like this' : null }</span>
       </p>
