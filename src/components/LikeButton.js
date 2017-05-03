@@ -16,7 +16,7 @@ class LikeButton extends PureComponent {
     const { liked } = this.state
     let classes = 'like'
 
-    if (liked) { classes += 'liked' }
+    if (liked) { classes += ' liked' }
 
     return classes
   }
@@ -26,7 +26,7 @@ class LikeButton extends PureComponent {
     this.setState({
       liked: true
     })
-    console.log("Like button clicked!!!")
+    console.log('Like button clicked!!!')
   }
 
   render() {
