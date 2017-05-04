@@ -16,11 +16,12 @@ class RecipeItem extends PureComponent {
   }
 
   render() {
-    const { _id, title, summary, vegan, vegetarian, pescatarian, liked } = this.props
+    const { _id, title, photo, summary, vegan, vegetarian, pescatarian, liked } = this.props
 
     return(
       <article className="recipe">
         <h1>{ title }</h1>
+        <div className="cover" style={{ backgroundImage: `url(${photo})` }} />
         <div>
           <p>{ summary }</p>
           <ul>
