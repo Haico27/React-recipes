@@ -7,7 +7,7 @@ class LikeButton extends PureComponent {
   static propTypes = {
     _id: PropTypes.string.isRequired,
     liked: PropTypes.bool.isRequired, //prop received from the parent, the RecipeItem
-    onChange: PropTypes.func.isrequired, //function that is passed down by the parent RecipeItem
+    onChange: PropTypes.func.isRequired, //function that is passed down by the parent RecipeItem
   }
 
 
