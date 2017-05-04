@@ -5,10 +5,10 @@ import './LikeButton.sass'
 
 class LikeButton extends PureComponent {
   static propTypes = {
+    _id: PropTypes.string.isRequired,
     liked: PropTypes.bool.isRequired, //prop received from the parent, the RecipeItem
     onChange: PropTypes.func.isrequired, //function that is passed down by the parent RecipeItem
   }
-
 
 
 // function that toggles the className of the component
@@ -24,7 +24,7 @@ class LikeButton extends PureComponent {
   // function that toggles the LikeButton
   toggleLike() {
     console.log('CLICK (LikeButton)')
-    this.props.onChange()
+    this.props.onChange(this.props._id, !this.props.liked)
   }
 
   render() {

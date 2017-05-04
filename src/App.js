@@ -65,7 +65,11 @@ class App extends React.Component {
   }
 
   updateRecipe(id, update) {
-    
+    this.setState(this.state.recipes.map(function(recipe) {
+      if (recipe._id === id) {
+        recipe.liked = update
+      }
+    }))
   }
 
 
@@ -74,7 +78,7 @@ class App extends React.Component {
 
     return (
       <div className="app">
-        <RecipesContainer recipes={ recipes }/>
+        <RecipesContainer recipes={ recipes } updateRecipe={this.updateRecipe.bind(this)}/>
       </div>
     )
   }
