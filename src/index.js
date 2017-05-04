@@ -6,3 +6,5 @@ ReactDOM.render(
   <App />,
   document.getElementById('root')
 )
+
+//ReactDOM takes care of updating the DOM to match the React elements

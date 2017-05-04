@@ -7,26 +7,21 @@ import './RecipeItem.sass'
 
 class RecipeItem extends PureComponent {
   static propTypes = {
-    _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     summary: PropTypes.string.isRequired,
     vegan: PropTypes.bool,
     vegetarian: PropTypes.bool,
     pescatarian: PropTypes.bool,
-  }
-
-  toggleLike() {
-    const { _id, liked } = this.props
-    console.log('CLICK (RecipeItem)', _id)
-    this.props.onChange( _id, { liked: !liked })
+    updateRecipe: PropTypes.func.isRequired,
   }
 
   render() {
-    const { _id, title, summary, vegan, vegetarian, pescatarian, liked } = this.props
+    const { _id, title, photo, summary, vegan, vegetarian, pescatarian, liked } = this.props
 
     return(
       <article className="recipe">
         <h1>{ title }</h1>
+        <div className="cover" style={{ backgroundImage: `url(${photo})` }} />
         <div>
           <p>{ summary }</p>
           <ul>
@@ -38,7 +33,8 @@ class RecipeItem extends PureComponent {
         <div>
           <LikeButton
             liked={ liked }
-            onChange={ this.toggleLike.bind(this) } />
+            _id={ _id }
+            onChange={ this.props.updateRecipe.bind(this) } />
         </div>
       </article>
     )
