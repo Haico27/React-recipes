@@ -1,4 +1,6 @@
-const recipes = [
+import { TOGGLE_LIKE } from '../actions/recipes/toggle-like'
+
+export const recipes = [
   {
     _id: '123',
     title: 'Creamy Vegan Linguine with Wild Mushrooms',
@@ -52,5 +54,17 @@ const recipes = [
 ]
 
 export default ( state = recipes, { type, payload } = {} ) => {
-  return state
+
+  switch(type) {
+    case TOGGLE_LIKE :
+      return state.map((recipe) => {
+        if (recipe._id === payload) {
+          return Object.assign({}, recipe, { liked: !recipe.liked })
+        }
+        return recipe
+      })
+
+      default :
+        return state
+  }
 }
