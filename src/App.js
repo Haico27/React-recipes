@@ -5,7 +5,6 @@ import './App.sass'
 
 
 class App extends React.Component {
-
   updateRecipe(id, update) {
     this.setState(this.state.recipes.map(function(recipe) {
       if (recipe._id === id) {
@@ -13,7 +12,6 @@ class App extends React.Component {
       }
     }))
   }
-
 
   render() {
     return (

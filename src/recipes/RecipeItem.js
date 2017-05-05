@@ -16,7 +16,7 @@ class RecipeItem extends PureComponent {
   }
 
   render() {
-    const { _id, title, photo, summary, vegan, vegetarian, pescatarian, liked, updateRecipe } = this.props
+    const { _id, title, photo, summary, vegan, vegetarian, pescatarian, liked } = this.props
 
     return(
       <article className="recipe">
