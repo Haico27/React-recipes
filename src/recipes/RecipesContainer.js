@@ -6,10 +6,9 @@ import RecipeItem from './RecipeItem'
 class RecipesContainer extends PureComponent {
   static propTypes = {
     recipes: PropTypes.array.isRequired,
-    updateRecipe: PropTypes.func.isRequired,
   }
   renderRecipe(recipe, index) {
-    return <RecipeItem key={index} updateRecipe={ this.props.updateRecipe.bind(this) } { ...recipe } />
+    return <RecipeItem key={index} { ...recipe } />
   }
 
   render() {
