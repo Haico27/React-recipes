@@ -1,4 +1,5 @@
 import { TOGGLE_LIKE } from '../actions/recipes/toggle-like'
+import { CREATE_RECIPE } from '../actions/recipes/create'
 
 export const recipes = [
   {
@@ -63,6 +64,9 @@ export default ( state = recipes, { type, payload } = {} ) => {
         }
         return recipe
       })
+
+    case CREATE_RECIPE :
+      return [Object.assign({}, payload)].concat(state)
 
       default :
         return state
