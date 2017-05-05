@@ -25,7 +25,7 @@ class LikeButton extends PureComponent {
   toggleLike() {
     const { _id } = this.props
     console.log('CLICK (LikeButton)', _id)
-    this.props.onChange(this.props._id, !this.props.liked)
+    this.props.onChange()
   }
 
   render() {
