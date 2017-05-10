@@ -3,9 +3,8 @@ import HeartGrey from '../images/heart-grey.svg'
 import HeartRed from '../images/heart-red.svg'
 import './LikeButton.sass'
 
-class LikeButton extends PureComponent {
+export class LikeButton extends PureComponent {
   static propTypes = {
-    _id: PropTypes.string.isRequired,
     liked: PropTypes.bool.isRequired, //prop received from the parent, the RecipeItem
     onChange: PropTypes.func.isRequired, //function that is passed down by the parent RecipeItem
   }

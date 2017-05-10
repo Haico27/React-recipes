@@ -54,21 +54,23 @@ export const recipes = [
   },
 ]
 
-export default ( state = recipes, { type, payload } = {} ) => {
+//The reducer is a pure function that takes the previous state and an action, and returns the next state.
+
+export default ( state = recipes, { type, payload } = {} ) => { //"export" exports the reducer to the store
 
   switch(type) {
-    case TOGGLE_LIKE :
+    case TOGGLE_LIKE:
       return state.map((recipe) => {
         if (recipe._id === payload) {
-          return Object.assign({}, recipe, { liked: !recipe.liked })
+          return Object.assign({}, recipe, { liked: !recipe.liked }) //We don't mutate the state; we create a copy with Object.assign(). You MUST supply an empty object as the first parameter.
         }
         return recipe
       })
 
-    case CREATE_RECIPE :
+    case CREATE_RECIPE:
       return [Object.assign({}, payload)].concat(state)
 
-      default :
+      default:
         return state
   }
 }
