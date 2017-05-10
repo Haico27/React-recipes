@@ -1,7 +1,7 @@
 import { TOGGLE_LIKE } from '../actions/recipes/toggle-like'
 import { CREATE_RECIPE } from '../actions/recipes/create'
 
-export const recipes = [
+export const dummyData = [
   {
     _id: '123',
     title: 'Creamy Vegan Linguine with Wild Mushrooms',

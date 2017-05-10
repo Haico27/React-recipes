@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Title from '../components/Title'
-import RecipeItem from './RecipeItem'
+import { RecipeItem } from './RecipeItem'
 import RecipeEditor from './RecipeEditor'
 
 export class RecipesContainer extends PureComponent {
