@@ -4,12 +4,11 @@ import recipes, { dummyData } from './recipes'
 
 describe('recipes reducer', () => {
   const initialState = recipes()
-  const expectedState = []
+  const expectedState = dummyData
 
   it('returns an empty array for the initial state', () => {
     expect(initialState).to.eql(expectedState)
   })
-
 
   describe('TOGGLE_LIKE', () => {
     const initialRecipes = [
@@ -19,7 +18,7 @@ describe('recipes reducer', () => {
       },
       {
         _id: '1235',
-        liked: false
+        liked: true
       }
     ]
 
@@ -35,15 +34,15 @@ describe('recipes reducer', () => {
     ]
 
     const action = {
-      type: 'TOGGLE_LIKE',
+      type: TOGGLE_LIKE,
       payload: '1234'
     }
 
     const initialState = recipes(initialRecipes)
 
-    it('toggles the like prop on a recipe', () => {
-      expect(initialState).to.eql(initialRecipes)
-      expect(recipes(initialRecipes, action)).to.eql(eventualRecipes)
+    it('toggles the liked prop on a recipe', () => {
+      expect().to.eql()
+      expect().to.eql()
     })
   })
 })

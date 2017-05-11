@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { RecipesContainer } from './recipes/RecipesContainer'
+import RecipesContainer from './recipes/RecipesContainer'
 import './App.sass'
 
 

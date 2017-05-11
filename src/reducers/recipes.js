@@ -56,7 +56,7 @@ export const dummyData = [
 
 //The reducer is a pure function that takes the previous state and an action, and returns the next state.
 
-export default ( state = recipes, { type, payload } = {} ) => { //"export" exports the reducer to the store
+export default ( state = dummyData, { type, payload } = {} ) => { //"export" exports the reducer to the store
 
   switch(type) {
     case TOGGLE_LIKE:
