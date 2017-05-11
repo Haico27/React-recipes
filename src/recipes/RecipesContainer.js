@@ -4,7 +4,7 @@ import Title from '../components/Title'
 import RecipeItem from './RecipeItem'
 import RecipeEditor from './RecipeEditor'
 
-class RecipesContainer extends PureComponent {
+export class RecipesContainer extends PureComponent {
   static propTypes = {
     recipes: PropTypes.array.isRequired,
   }

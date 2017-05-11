@@ -1,13 +1,13 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import chai, { expect } from 'chai'
 import chaiEnzyme from 'chai-enzyme'
 import App from './App'
-import RecipesContainer from './recipes/RecipesContainer'
+import wrapper from '../test/wrapper'
+import RecipesContainer  from './recipes/RecipesContainer'
 
 chai.use(chaiEnzyme())
 
-const app = shallow(<App />)
+const app = wrapper(<App />)
 
 describe('<App />', () => {
   it('wraps everything in a div tag', () => {

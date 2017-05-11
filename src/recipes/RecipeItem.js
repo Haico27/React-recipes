@@ -51,4 +51,4 @@ toggleLike() {
   }
 }
 
-export default connect(null, { toggleLikeAction })(RecipeItem)
+export default connect(null, {toggleLikeAction})(RecipeItem)
