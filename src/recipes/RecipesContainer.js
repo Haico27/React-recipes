@@ -9,6 +9,7 @@ import RecipeEditor from './RecipeEditor'
 export class RecipesContainer extends PureComponent {
   static propTypes = {
     recipes: PropTypes.array.isRequired,
+    fetchRecipes: PropTypes.func.isRequired
   }
 
 //connect the fetchRecipes action to our component's props and call it from componentDidMount
