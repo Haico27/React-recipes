@@ -1,5 +1,6 @@
 import { TOGGLE_LIKE } from '../actions/recipes/toggle-like'
 import { CREATE_RECIPE } from '../actions/recipes/create'
+import { FETCHED_RECIPES } from '../actions/recipes/fetch'
 
 export const dummyData = [
   {
@@ -59,6 +60,9 @@ export const dummyData = [
 export default ( state = dummyData, { type, payload } = {} ) => { //"export" exports the reducer to the store
 
   switch(type) {
+    case FETCHED_RECIPES:
+      return [].concat(payload) //we use [].concat(payload) to make sure we return a new array with the API data
+
     case TOGGLE_LIKE:
       return state.map((recipe) => {
         if (recipe._id === payload) {
