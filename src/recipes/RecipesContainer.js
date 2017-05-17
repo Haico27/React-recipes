@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import fetchRecipes from '../actions/recipes/fetch'
 import Title from '../components/Title'
 import RecipeItem from './RecipeItem'
-import RecipeEditor from './RecipeEditor'
+import RecipeEditor  from './RecipeEditor'
 
 export class RecipesContainer extends PureComponent {
   static propTypes = {
