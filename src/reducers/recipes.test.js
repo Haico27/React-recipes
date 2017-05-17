@@ -4,7 +4,7 @@ import recipes, { dummyData } from './recipes'
 
 describe('recipes reducer', () => {
   const initialState = recipes()
-  const expectedState = dummyData
+  const expectedState = []
 
   it('returns an empty array for the initial state', () => {
     expect(initialState).to.eql(expectedState)

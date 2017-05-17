@@ -15,7 +15,7 @@ const TYPES = [
   'pescatarian'
 ]
 
-class RecipeEditor extends PureComponent {
+export class RecipeEditor extends PureComponent {
   constructor(props) {
     super()
 
