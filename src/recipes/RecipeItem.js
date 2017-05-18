@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 import Vegan from '../images/vegan.svg'
 import Vegetarian from '../images/vegetarian.svg'
 import Pescatarian from '../images/pescatarian.svg'
@@ -30,22 +31,26 @@ toggleLike() {
 
     return(
       <article className="recipe">
-        <h1>{ title }</h1>
-        <div className="cover" style={{ backgroundImage: `url(${photo})` }} />
-        <div>
-          <p>{ summary }</p>
+        <header>
+          <div className="cover" style={{ backgroundImage: `url(${photo})` }} />
+          <h1>
+            <Link to={`/recipes/${_id}`}>{ title }</Link>
+          </h1>
           <ul>
             { vegan && <li title="vegan"><img src={Vegan} /></li> }
             { !vegan && vegetarian && <li title="vegetarian"><img src={Vegetarian} /></li> }
             { pescatarian && <li title="pescatarian"><img src={Pescatarian} /></li> }
           </ul>
-        </div>
-        <div>
+        </header>
+        <main>
+          <p>{ summary }</p>
+        </main>
+        <footer>
           <LikeButton
             liked={ liked }
             _id={ _id }
             onChange={ this.toggleLike.bind(this) } />
-        </div>
+        </footer>
       </article>
     )
   }
