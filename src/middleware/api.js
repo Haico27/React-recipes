@@ -17,6 +17,7 @@ class API {
       .configure(rest(host).superagent(superagent));
   }
 
+
   service(serviceName) {
     return this.app.service(serviceName)
   }
@@ -32,9 +33,13 @@ class API {
     )
   }
 
+
+
   signOut() {
     return this.app.logout()
   }
 }
+
+
 
 export default API
