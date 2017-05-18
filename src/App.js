@@ -4,7 +4,7 @@ import LoadError from './components/LoadError'
 import RecipesContainer from './recipes/RecipesContainer'
 import './App.sass'
 
-
+//this.props.children tells our App-component to render what the Router gives us.
 
 class App extends React.Component {
 
@@ -12,7 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <RecipesContainer />
+        { this.props.children }
         <Loading />
         <LoadError />
       </div>
