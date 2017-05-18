@@ -2,6 +2,9 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import fetchRecipes from '../actions/recipes/fetch'
 import Title from '../components/Title'
+import Vegan from '../images/vegan.svg'
+import Vegetarian from '../images/vegetarian.svg'
+import Pescatarian from '../images/pescatarian.svg'
 
 export class RecipePage extends PureComponent {
   static propTypes = {}
@@ -12,11 +15,33 @@ export class RecipePage extends PureComponent {
   }
 
   render() {
-    const { title } = this.props
+    const { title, photo, vegan, vegetarian, pescatarian, cookingTime, ingredients, cookingSteps, authorId  } = this.props
 
     return(
       <div className="recipe page">
-        <Title content={ title } />
+        <header>
+          <div className="cover" style={{ backgroundImage: `url(${photo})` }} />
+          <h1>
+            <Title content={ title } />
+          </h1>
+          <ul>
+            { vegan && <li title="vegan"><img src={Vegan} /></li> }
+            { !vegan && vegetarian && <li title="vegetarian"><img src={Vegetarian} /></li> }
+            { pescatarian && <li title="pescatarian"><img src={Pescatarian} /></li> }
+          </ul>
+          <h2>{ cookingTime }</h2>
+        </header>
+        <main>
+          <div className="ingredients">
+            <p>{ ingredients }</p>
+          </div>
+          <div className="cooking steps">
+            <p>{ cookingSteps }</p>
+          </div>
+        </main>
+        <footer>
+          <p>This recipe is created by `${authorId}`</p>
+        </footer>
       </div>
     )
   }
