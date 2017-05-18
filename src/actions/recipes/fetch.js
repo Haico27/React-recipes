@@ -15,20 +15,22 @@ export default () => {
 const fetchRecipes = (dispatch) => {
   dispatch(loading(true))
 
-  recipes.find()
-    .then((response) => {
+  setTimeout(() => {
+    recipes.find()
+      .then((response) => {
 
-      dispatch({
-        type: FETCHED_RECIPES,
-        payload: response.data
+        dispatch({
+          type: FETCHED_RECIPES,
+          payload: response.data
+        })
       })
-    })
-    .catch((error) => {
-      dispatch(loadError(error))
-    })
-    .then(() => {
-      dispatch(loading(false))
-    })
+      .catch((error) => {
+        dispatch(loadError(error))
+      })
+      .then(() => {
+        dispatch(loading(false))
+      })
+  }, 3000)
 }
 
 /*export default () => {
