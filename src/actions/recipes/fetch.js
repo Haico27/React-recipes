@@ -1,5 +1,7 @@
 import API from '../../middleware/api'
 import loading from '../loading' //imports the action loading.js
+import loadError from '../load/load-error' //imports the action load/load-error
+
 
 export const FETCHED_RECIPES = 'FETCHED_RECIPES'
 
@@ -15,10 +17,14 @@ const fetchRecipes = (dispatch) => {
 
   recipes.find()
     .then((response) => {
+
       dispatch({
         type: FETCHED_RECIPES,
         payload: response.data
       })
+    })
+    .catch((error) => {
+      dispatch(loadError(error))
     })
     .then(() => {
       dispatch(loading(false))

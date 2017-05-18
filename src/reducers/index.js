@@ -5,5 +5,5 @@ import loadError from './loadError'
 module.exports = {
   recipes,
   loading,
-  loadError
+  loadError,
 }
