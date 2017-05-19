@@ -2,19 +2,20 @@ import feathers from 'feathers-client'
 import rest from 'feathers-rest/client'
 import superagent from 'superagent'
 
+
 const host = 'http://localhost:3030'
 
 class API {
   constructor() {
+    
     this.app = feathers()
+      .configure(rest(host).superagent(superagent))
       .configure(feathers.hooks())
       .configure(feathers.authentication({
         strategy: 'local',
         //when logged in, store the token in localStorage
         storage: window.localStorage,
-      }))
-
-      .configure(rest(host).superagent(superagent));
+      }));
   }
 
 
@@ -26,7 +27,7 @@ class API {
     const { email, password } = user
 
     return this.app.authenticate(
-      Object.assign({}, { strategy: 'local'}, {
+      Object.assign({}, { strategy: 'local' }, {
         email,
         password,
       })

@@ -14,12 +14,13 @@ export default (user) => {
 
     api.authenticate(user)
     .then((response) => {
-      
+      console.log("response.data in sign-in action: ", response.data )
+
+
       dispatch(loadSuccess())
       dispatch({
         type: USER_SIGNED_IN,
-        payload: response
-
+        payload: response.data
       })
       history.push('/')
       console.log("Logged in successfully!")
