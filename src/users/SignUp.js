@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import signUp from '../actions/user/sign-up'
 import Title from '../components/Title'
+import { Link } from 'react-router'
 
 export class SignUp extends PureComponent {
   constructor() {
@@ -148,6 +149,7 @@ export class SignUp extends PureComponent {
             }
           </div>
           <input type="submit" value="Sign up" />
+          <p>Already have an account? <Link to="/sign-in">Sign in</Link></p>
         </form>
       </div>
     )

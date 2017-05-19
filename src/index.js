@@ -8,6 +8,7 @@ import App from './App'
 import RecipesContainer from './recipes/RecipesContainer'
 import RecipePage from './recipes/RecipePage'
 import SignUp from './users/SignUp'
+import SignIn from './users/SignIn'
 
 ReactDOM.render(
   <Provider store={store}>
@@ -16,6 +17,7 @@ ReactDOM.render(
         <IndexRoute component={RecipesContainer} />
         <Route path="/recipes/:recipeId" component={RecipePage} />
         <Route path="/sign-up" component={SignUp} />
+        <Route path="/sign-in" component={SignIn} />
       </Route>
     </Router>
   </Provider>,
