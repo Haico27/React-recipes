@@ -45,6 +45,6 @@ export default ( state = [], { type, payload } = {} ) => { //"export" exports th
       })
 
     case RECIPE_REMOVED :
-      return state.filter((filter) => (recipe._id !== payload._id)
+      return state.filter((filter) => (recipe._id !== payload._id))
   }
 }
