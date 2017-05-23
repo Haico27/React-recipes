@@ -14,7 +14,7 @@ export default (user) => {
 
     api.authenticate(user)
     .then((response) => {
-      console.log("response.data in sign-in action: ", response.data )
+      console.log("response in sign-in action: ", response )
 
 
       dispatch(loadSuccess())
