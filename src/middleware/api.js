@@ -1,15 +1,18 @@
-import feathers from 'feathers-client'
-import rest from 'feathers-rest/client'
-import superagent from 'superagent'
+import feathers from 'feathers-client';
+import io from 'socket.io-client';
 
 
 const host = 'http://localhost:3030'
 
 class API {
   constructor() {
-    
+    // Establish a Socket.io connection
+    const socket = io(host)
+    // Initialize our Feathers client application through Socket.io
+    // with hooks and authentication.
     this.app = feathers()
-      .configure(rest(host).superagent(superagent))
+
+      .configure(feathers.socketio(socket))
       .configure(feathers.hooks())
       .configure(feathers.authentication({
         strategy: 'local',
