@@ -7,7 +7,7 @@ const host = 'http://localhost:3030'
 class API {
   constructor() {
     // Establish a Socket.io connection
-    const socket = io(host)
+    const socket = io(host);
     // Initialize our Feathers client application through Socket.io
     // with hooks and authentication.
     this.app = feathers()
