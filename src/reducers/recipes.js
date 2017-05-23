@@ -2,6 +2,12 @@ import { TOGGLE_LIKE } from '../actions/recipes/toggle-like'
 import { CREATE_RECIPE } from '../actions/recipes/create'
 import { FETCHED_RECIPES } from '../actions/recipes/fetch'
 
+import {
+  RECIPE_CREATED,
+  RECIPE_UPDATED,
+  RECIPE_REMOVED
+} from '../actions/recipes/subscribe'
+
 
 
 //The reducer is a pure function that takes the previous state and an action, and returns the next state.
@@ -25,5 +31,20 @@ export default ( state = [], { type, payload } = {} ) => { //"export" exports th
 
       default:
         return state
+
+    case RECIPE_CREATED :
+      const newRecipe = Object.assign({}, payload)
+      return [newRecipe].concat(state)
+
+    case RECIPE_UPDATED :
+      return state.map((recipe) => {
+        if (recipe._id === payload._id) {
+          return Object.assign({}, payload)
+        }
+        return recipe
+      })
+
+    case RECIPE_REMOVED :
+      return state.filter((filter) => (recipe._id !== payload._id)
   }
 }
