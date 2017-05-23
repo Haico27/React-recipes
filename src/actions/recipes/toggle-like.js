@@ -8,7 +8,8 @@ export default(recipe, user) => {
   const liked = recipe.likedBy.filter((like) => (like === user._id)).length > 0
 
   api.app.authenticate()
-    .then(() => {
+    .then((response) => {
+      console.log("this is the response of the toggle-like authentication: ", response)
       recipes.patch(recipe._id, { like: !liked })
     })
     .catch((error) => {
